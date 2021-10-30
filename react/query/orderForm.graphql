@@ -1,0 +1,12 @@
+query orderForm {
+  orderForm @context(provider: "vtex.store-graphql") {
+    orderFormId
+    items {
+      name,
+      id,
+      price,
+      imageUrl
+    }
+  }
+  
+}

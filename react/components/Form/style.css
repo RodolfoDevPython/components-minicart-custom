@@ -1,0 +1,112 @@
+.formMinicartBaw {
+    position: absolute;
+    top: 0;
+    z-index: 9999;
+    background: var(--white);
+    height: 100%;
+    max-height: calc(100vh - 80px);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.formHeaderMinicartBaw {
+    background-color: var(--primary-dark);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formMinicartBaw a { 
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1rem;
+    color: #3531FF;
+    margin-bottom: 8px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.formMinicartBaw form {
+    padding: 1rem;
+    display: flex;   
+    flex-direction: column;
+    background-color: var(--gray-light);
+    align-items: baseline;
+}
+
+
+.formMinicartBaw form span{ 
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--darkgrey-medium);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.formMinicartBaw form span strong {  
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.formMinicartBaw .formInputMinicartBaw {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--primary-dark);
+    height: 48px;
+    position: relative;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.formMinicartBaw .formInputMinicartBaw input {
+    height: 100%;
+    border: 0px;
+    width: 100%;
+    padding-left: 20px;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 20px;
+    color: var(--primary-default);
+    font-family: 'Darker Grotesque'; 
+    padding-right: 40px; 
+}
+
+.formMinicartBaw .formInputMinicartBaw input::placeholder {
+    color: var(--darkgrey-light);
+}
+
+.formMinicartBaw .formInputMinicartBaw button[type='submit'] {  
+    position: absolute;
+    right: 0px;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='18' viewBox='0 0 10 18' fill='none'%3E%3Cpath d='M1.06201 16.8751L8.93701 9.00006L1.06201 1.12505' stroke='%232D2D2D' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-position: center;
+    border: 0px;
+    background-color: transparent;
+    height: 42px;
+    width: 42px;
+    cursor: pointer;
+    transition: all .2s cubic-bezier(1,-4,0,3); 
+}
+
+.formMinicartBaw .formInputMinicartBaw button[type='submit']:hover {
+    transform: scale(1.25);
+}
+
+.formFooterMinicartBaw {
+    background-color: var(--white);
+    padding: 1rem;
+}
+
+.formFooterMinicartBaw p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--darkgrey-light);
+}

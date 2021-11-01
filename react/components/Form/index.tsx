@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FormEvent, useState } from "react"
 import style from "./style.css";
 
 interface FormBawProps {
@@ -9,15 +9,55 @@ interface FormBawProps {
 
 import iconLogo from "../../../assets/icons/background-logo-baw-minicart.svg";
 
+import { useOrderForm } from 'vtex.order-manager/OrderForm';
+
+import updateOrderFormProfile from '../../graphql/Mutations/updateOrderFormProfile.graphql';
+import { useMutation } from 'react-apollo';
+
 export function FormBaw({
     showFormbaw,
     handleOpen
 }: FormBawProps) {
 
+    const {
+        orderForm: {
+            id
+        }
+      } = useOrderForm();
+
+    const  [email, setEmail] = useState("");
+
+    const [handleUpdateOrderFormProfile]  = useMutation(updateOrderFormProfile);
+
     console.log({
         showFormbaw,
         handleOpen
     })
+
+    async function handleGoCheckout(event: FormEvent) {
+
+        event.preventDefault();
+        
+        const {
+            data: {
+                UpdateOrderFormProfile: {
+                    clientProfileData
+                }
+            }
+        } = await handleUpdateOrderFormProfile({
+            variables: {
+                ID: id,
+                input: {
+                    email
+                }
+            },
+        })
+
+        console.log(clientProfileData)
+        
+        // location.href = "/checkout/#profile";
+
+    }
 
     return(
 
@@ -28,7 +68,7 @@ export function FormBaw({
             </div>
 
 
-            <form>
+            <form onSubmit={(event) => handleGoCheckout(event)}>
                 <a onClick={ () => handleOpen(!showFormbaw)}>voltar para o carrinho</a>
                 <span>
                     Para Finalizar a compra, informe seu email:
@@ -37,7 +77,12 @@ export function FormBaw({
                 </span>
 
                 <div className={style.formInputMinicartBaw} >
-                    <input type="email" placeholder="Digite seu e-mail" required />   
+                    <input 
+                        type="email" 
+                        placeholder="Digite seu e-mail" 
+                        required 
+                        onChange={({ target }) => setEmail(target.value)}
+                    />   
                     <button type="submit"></button>
                 </div>
                 

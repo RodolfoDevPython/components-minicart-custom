@@ -1,0 +1,26 @@
+#import '../fragments/orderForm.graphql'
+
+mutation UpdateOrderFormProfile($ID: ID, $input: UserProfileInput) {
+    updateOrderFormProfile(orderFormId: $ID, input: $input){
+     	clientProfileData {
+     	  email
+     	  firstName
+     	  lastName
+     	  document
+     	  documentType
+     	  phone
+     	  corporateName
+     	  tradeName
+     	  corporateDocument
+     	  stateInscription
+     	  corporatePhone
+     	  isCorporate
+     	  profileCompleteOnLoading
+     	  profileErrorOnLoading
+     	  customerClass
+     	}	
+    }
+    
+}
+
+

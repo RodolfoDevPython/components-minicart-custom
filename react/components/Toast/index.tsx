@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 interface ToastNotificationsProps {
     showToast: boolean,
@@ -20,6 +20,16 @@ export function ToastNotifications({
         onHandleClosed,
         showToast
     })
+
+    useEffect( () => {
+
+        if(showToast === true) {
+            console.log("chamei a função")
+            setTimeout( () => onHandleClosed(false) , 2000);
+        }
+
+    }, [showToast])
+
 
     return (      
         <div 

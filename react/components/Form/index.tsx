@@ -1,18 +1,20 @@
 import React, { FormEvent, useState } from "react"
 import style from "./style.css";
 
+import { useOrderForm } from 'vtex.order-manager/OrderForm';
+
+import UpOrderFormProfile from '../../graphql/Mutations/updateOrderFormProfile.graphql';
+import { useMutation } from 'react-apollo';
+
+import iconLogo from "../../../assets/icons/background-logo-baw-minicart.svg";
+import iconEmail from "../../../assets/icons/icon-white-email.svg";
+import iconWhatsaap from "../../../assets/icons/icon-white-whatsaap.svg";
+import iconLocation from "../../../assets/icons/icon-white-location.svg";
+
 interface FormBawProps {
     showFormbaw: boolean,
     handleOpen: (_ : boolean) => void
 }
-
-
-import iconLogo from "../../../assets/icons/background-logo-baw-minicart.svg";
-
-import { useOrderForm } from 'vtex.order-manager/OrderForm';
-
-import updateOrderFormProfile from '../../graphql/Mutations/updateOrderFormProfile.graphql';
-import { useMutation } from 'react-apollo';
 
 export function FormBaw({
     showFormbaw,
@@ -27,36 +29,28 @@ export function FormBaw({
 
     const  [email, setEmail] = useState("");
 
-    const [handleUpdateOrderFormProfile]  = useMutation(updateOrderFormProfile);
-
-    console.log({
-        showFormbaw,
-        handleOpen
-    })
+    const [handleUpdateOrderFormProfile]  = useMutation(UpOrderFormProfile);
 
     async function handleGoCheckout(event: FormEvent) {
 
         event.preventDefault();
-        
-        const {
-            data: {
-                UpdateOrderFormProfile: {
-                    clientProfileData
-                }
-            }
-        } = await handleUpdateOrderFormProfile({
-            variables: {
-                ID: id,
-                input: {
-                    email
-                }
-            },
-        })
 
-        console.log(clientProfileData)
+        try {
+            await handleUpdateOrderFormProfile({
+                variables: {
+                    ID: id,
+                    email: email
+                },
+            })
+    
+            location.href = "/checkout/#profile";
         
-        // location.href = "/checkout/#profile";
-
+        } catch (error) {
+            console.log({
+                error
+            })            
+        }
+        
     }
 
     return(
@@ -69,22 +63,28 @@ export function FormBaw({
 
 
             <form onSubmit={(event) => handleGoCheckout(event)}>
+                <h3 className={style.titleMobileformMinicartBaw} >AUTENTICAÇÃO</h3>
                 <a onClick={ () => handleOpen(!showFormbaw)}>voltar para o carrinho</a>
-                <span>
-                    Para Finalizar a compra, informe seu email:
-                    <br />
-                    <strong>Rápida. Fácil. Seguro</strong>
-                </span>
 
-                <div className={style.formInputMinicartBaw} >
-                    <input 
-                        type="email" 
-                        placeholder="Digite seu e-mail" 
-                        required 
-                        onChange={({ target }) => setEmail(target.value)}
-                    />   
-                    <button type="submit"></button>
+                <div className={style.formMinicartBawWrapper}>
+                    
+                    <span>
+                        Para Finalizar a compra, informe seu email:
+                        <br />
+                        <strong>Rápida. Fácil. Seguro</strong>
+                    </span>
+
+                    <div className={style.formInputMinicartBaw} >
+                        <input 
+                            type="email" 
+                            placeholder="Digite seu e-mail" 
+                            required 
+                            onChange={({ target }) => setEmail(target.value)}
+                        />   
+                        <button type="submit"></button>
+                    </div>
                 </div>
+                
                 
 
             </form>
@@ -99,7 +99,25 @@ export function FormBaw({
                 </p>
             </div>
 
-            
+            <div className={style.formFooterMobileMinicartBaw} >
+
+                <a>
+                    <img height="24" width="23" src={iconWhatsaap} alt="iconWhatsaap" />
+                    <span>11 96316-4115</span>
+                </a>
+
+                <a>
+                    <img width="24" height="18" src={iconEmail} alt="iconEmail" />
+                    <span>sac@bawclothing.com.br</span>
+                </a>
+
+                <a>
+                    <img width="19" height="24" src={iconLocation} alt="iconLocation" />
+                    <span>R. Dr Leonardo Pinto, 31 - Bom Retiro,SP</span>
+                </a>
+
+            </div>
+
         </div>
                
     )

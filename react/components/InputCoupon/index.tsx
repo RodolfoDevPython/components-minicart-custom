@@ -17,18 +17,25 @@ export function DiscountCoupon({} : DiscountCouponProps) {
     orderForm: { id }    
   } = useOrderForm();
 
-
-  useEffect( () => {
-    
-    console.log({ coupon })
-
-  }, [coupon]);
-
   const [showToast, setShowtoast] = useState(false);
-
+  const [message, setMessage] = useState("");
 
   const [handleMutationCoupon]  = useMutation(addCoupon);
   const [FCclearOrderFormMessages]  = useMutation(clearOrderFormMessagesMutatios);
+
+  useEffect( () => {
+    
+    console.log({
+      message
+    });
+    console.log("=------ onHandleClosed -----------=")
+
+    if (message.trim() == "") return;
+
+    onHandleClosed();
+
+  }, [message])
+
 
   async function HandleCoupon(event: FormEvent) {
 
@@ -55,16 +62,23 @@ export function DiscountCoupon({} : DiscountCouponProps) {
       couponMessages
     })
 
-    if (couponMessages.length > 1) {
-  
-      if (couponMessages[0] == "couponExpired") {
+    if (couponMessages?.length > 0) {
+
+      switch (couponMessages[0].code) {
+
+        case "couponExpired":
+            setMessage("O cupom que voçê utilizou já expirou");
+          break;
+      
+        case "couponNotFound":
+            setMessage("O cupom que voçê utilizou não é válido");
+          break;
+    
+        default:
+          break;
 
       }
-
-      if (couponMessages[0] == "couponNotFound") {
-
-      }
-
+      
       //clearOrderFormMessage rodar essa mutation quando recebermos um erro do cupon
       const { 
         data: {
@@ -83,10 +97,6 @@ export function DiscountCoupon({} : DiscountCouponProps) {
     } 
 
     //capturamos o erro pelo message
-
-    
-    
-
   }
 
   function onHandleClosed() {
@@ -103,19 +113,20 @@ export function DiscountCoupon({} : DiscountCouponProps) {
                   type="text" 
                   placeholder="insira o código"
                   onChange={({ target }) => setCoupon((target.value).toUpperCase())} 
+                  required
               />   
               <button type="submit"></button>
           </form>
 
           {
 
-            !showToast && (
-              <ToastNotifications 
-                showToast={showToast}
-                message='O cupom que voçê utilizou não é válido'
-                onHandleClosed={onHandleClosed} 
-              />
-            )
+            // showToast && (
+            <ToastNotifications 
+              showToast={showToast}
+              message={message}
+              onHandleClosed={() => onHandleClosed()}
+            />
+            // )
 
           }
           

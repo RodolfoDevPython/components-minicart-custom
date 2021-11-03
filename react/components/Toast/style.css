@@ -19,6 +19,7 @@
     -ms-transition: all .2s cubic-bezier(1,-2,0,1);
     transition: all .2s cubic-bezier(1,-2,0,1);
     transition-duration: .4s;
+    width: fit-content;
 }
 
 .ButtonToast img{

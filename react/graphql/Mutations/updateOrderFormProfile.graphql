@@ -1,26 +1,28 @@
-#import '../fragments/orderForm.graphql'
+mutation UpdateOrderFormProfile($ID: ID, $email: String) {
+    updateOrderFormProfile(
+		orderFormId: $ID, 
+		input: {
+			email: $email
+		}
+	)
+	@context(provider: "vtex.checkout-graphql") {
+		clientProfileData {
+			email
+			firstName
+			lastName
+			document
+			documentType
+			phone
+			corporateName
+			tradeName
+			corporateDocument
+			stateInscription
+			corporatePhone
+			isCorporate
+			profileCompleteOnLoading
+			profileErrorOnLoading
+			customerClass
+		}	
+	}
 
-mutation UpdateOrderFormProfile($ID: ID, $input: UserProfileInput) {
-    updateOrderFormProfile(orderFormId: $ID, input: $input){
-     	clientProfileData {
-     	  email
-     	  firstName
-     	  lastName
-     	  document
-     	  documentType
-     	  phone
-     	  corporateName
-     	  tradeName
-     	  corporateDocument
-     	  stateInscription
-     	  corporatePhone
-     	  isCorporate
-     	  profileCompleteOnLoading
-     	  profileErrorOnLoading
-     	  customerClass
-     	}	
-    }
-    
 }
-
-

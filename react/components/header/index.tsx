@@ -20,12 +20,16 @@ export function Header({ props } : any) {
 
     const listPrice = items.map( (e : any) => {
 
-        if (e?.listPrice) {
-            return (e.listPrice * e.quantity);
+        if (e?.priceDefinition?.total) {
+            return (e.priceDefinition.total * e.quantity);
         } else {
             return 0
         }
         
+    });
+
+    console.log({
+        items
     })
 
     const tot = (listPrice / 100);
@@ -39,7 +43,7 @@ export function Header({ props } : any) {
         let totListPrice = 0; 
 
         items.map( (e : any) => {
-            totListPrice+= (e.listPrice * e.quantity);
+            totListPrice+= (e.priceDefinition.total * e.quantity);
         })
 
         const priceTot = totListPrice / 100;

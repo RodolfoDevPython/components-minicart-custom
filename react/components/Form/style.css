@@ -10,6 +10,22 @@
     flex-direction: column;
 }
 
+.titleMobileformMinicartBaw {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    color: var(--darkgrey-dark);
+    text-align: center;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+@media screen and (min-width: 64rem) {
+    .titleMobileformMinicartBaw {
+        display: none;
+    }
+}
+
 .formHeaderMinicartBaw {
     background-color: var(--primary-dark);
     padding: 24px;
@@ -35,7 +51,6 @@
     background-color: var(--gray-light);
     align-items: baseline;
 }
-
 
 .formMinicartBaw form span{ 
     font-size: 20px;
@@ -109,4 +124,62 @@
     font-size: 14px;
     line-height: 20px;
     color: var(--darkgrey-light);
+}
+
+@media screen and (min-width: 64rem) {
+    .formFooterMobileMinicartBaw {
+        display: none;
+    }   
+}
+
+
+/* MOBILE */
+@media screen and (max-width: 64rem) {
+
+
+    .formMinicartBaw form a {
+        margin-bottom: 1rem;
+    }
+
+    .formMinicartBaw form {
+        background-color: var(--white);
+    }
+
+    .formMinicartBawWrapper {
+        padding: 1rem;
+        background-color: var(--gray-light);
+    }
+
+    .formMinicartBaw form span, 
+    .formMinicartBaw form span strong { 
+        font-size: 1rem;
+    }
+
+    .formFooterMobileMinicartBaw {
+        padding: 26px 0px;
+        background-color: var(--primary-dark);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .formFooterMobileMinicartBaw a {
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        margin-bottom: 4px;
+    }
+    
+    .formFooterMobileMinicartBaw img {
+        margin-right: 8.5px;
+    }
+    
+    .formFooterMobileMinicartBaw span {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        color: var(--white);
+    }
 }

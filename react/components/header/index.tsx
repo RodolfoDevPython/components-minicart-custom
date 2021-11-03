@@ -17,7 +17,7 @@ export function Header() {
     const listPrice = items.map( (e : any) => {
 
         if (e?.priceDefinition?.total) {
-            return (e.priceDefinition.total * e.quantity);
+            return (e.priceDefinition.total);
         } else {
             return 0
         }
@@ -35,7 +35,7 @@ export function Header() {
         let totListPrice = 0; 
 
         items.map( (e : any) => {
-            totListPrice+= (e.priceDefinition.total * e.quantity);
+            totListPrice+= (e.priceDefinition.total);
         })
 
         const priceTot = totListPrice / 100;

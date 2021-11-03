@@ -3,9 +3,6 @@ import style from "./style.css";
 
 export function ButtonToCheckout({ handleOpen } : any) {
 
-    console.log("ButtonToCheckout", {
-        handleOpen
-    })
 
     return (
 

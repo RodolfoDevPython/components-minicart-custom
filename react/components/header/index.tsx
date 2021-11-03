@@ -8,11 +8,7 @@ import { Progress } from 'vtex.styleguide';
 
 import style from "./style.css";
 
-export function Header({ props } : any) {
-
-    const {
-        id
-    } = props;
+export function Header() {
 
     const {
         orderForm: { items },
@@ -27,10 +23,6 @@ export function Header({ props } : any) {
         }
         
     });
-
-    console.log({
-        items
-    })
 
     const tot = (listPrice / 100);
     const [total, setTotal] : any = useState(tot);
@@ -47,20 +39,6 @@ export function Header({ props } : any) {
         })
 
         const priceTot = totListPrice / 100;
-
-        console.log("Header", {
-            props,
-            tot,
-            id,
-            total,
-            listPrice,
-            totListPrice,
-            setTotal,
-            setPrice,
-            price,
-            items,
-            percent
-        })
 
         setTotal(priceTot);
         setPrice(CurrencyFormat(199.9 - priceTot));

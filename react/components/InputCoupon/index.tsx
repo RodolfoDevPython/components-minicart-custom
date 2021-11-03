@@ -24,11 +24,6 @@ export function DiscountCoupon({} : DiscountCouponProps) {
   const [FCclearOrderFormMessages]  = useMutation(clearOrderFormMessagesMutatios);
 
   useEffect( () => {
-    
-    console.log({
-      message
-    });
-    console.log("=------ onHandleClosed -----------=")
 
     if (message.trim() == "") return;
 
@@ -58,10 +53,6 @@ export function DiscountCoupon({} : DiscountCouponProps) {
       },
     })
 
-    console.log({
-      couponMessages
-    })
-
     if (couponMessages?.length > 0) {
 
       switch (couponMessages[0].code) {
@@ -80,20 +71,13 @@ export function DiscountCoupon({} : DiscountCouponProps) {
       }
       
       //clearOrderFormMessage rodar essa mutation quando recebermos um erro do cupon
-      const { 
-        data: {
-          clearOrderFormMessages 
-        } 
-      } = await FCclearOrderFormMessages({
+      await FCclearOrderFormMessages({
         variables: {
           orderFormId: id
         }
       })
 
-      console.log({
-        clearOrderFormMessages,
-        couponMessages
-      })
+      
     } 
 
     //capturamos o erro pelo message

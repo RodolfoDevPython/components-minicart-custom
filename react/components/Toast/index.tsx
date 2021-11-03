@@ -16,15 +16,9 @@ export function ToastNotifications({
 }: ToastNotificationsProps) {
 
 
-    console.log({
-        onHandleClosed,
-        showToast
-    })
-
     useEffect( () => {
 
         if(showToast === true) {
-            console.log("chamei a função")
             setTimeout( () => onHandleClosed(false) , 2000);
         }
 

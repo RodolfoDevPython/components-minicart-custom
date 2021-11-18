@@ -60,3 +60,27 @@
 .couponInputMinicartBaw button[type='submit']:hover {
     transform: scale(1.25);
 }
+
+
+
+/* MOBILE */
+@media screen and (max-width: 64rem) {
+    .couponInputMinicartBaw button[type='submit'] { 
+        background: none;
+        width: fit-content;
+    }
+
+    .couponInputMinicartBaw button[type='submit']::after {
+        content: "APLICAR";
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        color: var(--darkgrey-dark);
+        width: fit-content;
+    }
+
+    .couponInputMinicartBaw button[type='submit']:hover {
+        transform: none;
+    }
+
+}

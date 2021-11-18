@@ -137,6 +137,13 @@
 @media screen and (max-width: 64rem) {
 
 
+    .formMinicartBaw { 
+        height: 100vh;
+        min-height: calc(100vh + 118px);
+        max-height: 100vh;
+        background: var(--darkgrey-dark);
+    }
+
     .formMinicartBaw form a {
         margin-bottom: 1rem;
     }
@@ -181,5 +188,23 @@
         font-size: 14px;
         line-height: 24px;
         color: var(--white);
+    }
+
+    .formMinicartBaw .formInputMinicartBaw  button[type='submit'] { 
+        background: none;
+        width: fit-content;
+    }
+
+    .formMinicartBaw .formInputMinicartBaw  button[type='submit']::after {
+        content: "APLICAR";
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        color: var(--darkgrey-dark);
+        width: fit-content;
+    }
+
+    .formMinicartBaw .formInputMinicartBaw  button[type='submit']:hover {
+        transform: none;
     }
 }

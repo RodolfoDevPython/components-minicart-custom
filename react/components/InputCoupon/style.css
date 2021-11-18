@@ -68,6 +68,8 @@
     .couponInputMinicartBaw button[type='submit'] { 
         background: none;
         width: fit-content;
+        padding: 0;
+        margin-right: 1rem;
     }
 
     .couponInputMinicartBaw button[type='submit']::after {
@@ -83,4 +85,7 @@
         transform: none;
     }
 
+    .couponInputMinicartBaw input { 
+        padding-right: 100px;
+    }
 }

@@ -190,13 +190,19 @@
         color: var(--white);
     }
 
+    .formMinicartBaw .formInputMinicartBaw input {
+        padding-right: 132px;
+    }
+
     .formMinicartBaw .formInputMinicartBaw  button[type='submit'] { 
         background: none;
         width: fit-content;
+        padding: 0;
+        margin-right: 20px;
     }
 
     .formMinicartBaw .formInputMinicartBaw  button[type='submit']::after {
-        content: "APLICAR";
+        content: "CONTINUAR";
         font-weight: bold;
         font-size: 16px;
         line-height: 20px;

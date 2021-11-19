@@ -202,10 +202,6 @@
         padding-right: 132px;
     }
 
-    .formMinicartBaw .formInputMinicartBaw input::placeholder {
-        font-size: 0px;
-    }
-
     .formMinicartBaw .formInputMinicartBaw  button[type='submit'] { 
         background: none;
         width: fit-content;

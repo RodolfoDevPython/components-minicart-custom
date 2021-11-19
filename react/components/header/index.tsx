@@ -35,7 +35,13 @@ export function Header() {
         let totListPrice = 0; 
 
         items.map( (e : any) => {
-            totListPrice+= (e.priceDefinition.total);
+
+            if (e?.priceDefinition?.total) {
+                totListPrice+= (e.priceDefinition?.total);
+            } else {
+                totListPrice+= 0;   
+            }
+            
         })
 
         const priceTot = totListPrice / 100;

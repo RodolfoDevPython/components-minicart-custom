@@ -79,6 +79,7 @@
         line-height: 20px;
         color: var(--darkgrey-dark);
         width: fit-content;
+        font-family: 'Darker Grotesque';
     }
 
     .couponInputMinicartBaw button[type='submit']:hover {

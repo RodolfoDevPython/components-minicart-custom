@@ -142,6 +142,7 @@
         min-height: calc(100vh + 118px);
         max-height: 100vh;
         background: var(--darkgrey-dark);
+        width: 100vw;
     }
 
     .formMinicartBaw form a {
@@ -153,6 +154,7 @@
     }
 
     .formMinicartBawWrapper {
+        width: 100%;
         padding: 1rem;
         background-color: var(--gray-light);
     }
@@ -160,6 +162,12 @@
     .formMinicartBaw form span, 
     .formMinicartBaw form span strong { 
         font-size: 1rem;
+        color: var(--darkgrey-medium);
+    }
+
+    .formMinicartBaw form span {
+        max-width: 193px;
+        display: block;
     }
 
     .formFooterMobileMinicartBaw {
@@ -194,6 +202,10 @@
         padding-right: 132px;
     }
 
+    .formMinicartBaw .formInputMinicartBaw input::placeholder {
+        font-size: 0px;
+    }
+
     .formMinicartBaw .formInputMinicartBaw  button[type='submit'] { 
         background: none;
         width: fit-content;
@@ -208,6 +220,7 @@
         line-height: 20px;
         color: var(--darkgrey-dark);
         width: fit-content;
+        font-family: 'Darker Grotesque';
     }
 
     .formMinicartBaw .formInputMinicartBaw  button[type='submit']:hover {

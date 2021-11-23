@@ -90,7 +90,7 @@ export function DiscountCoupon({} : DiscountCouponProps) {
   return (
       <div className={style.couponContainerMinicartBaw} >
           
-          <label>Cupon de Desconto</label>
+          <label>Cupom de Desconto</label>
           <form onSubmit={(event) => HandleCoupon(event)} className={style.couponInputMinicartBaw} >
             
               <input 

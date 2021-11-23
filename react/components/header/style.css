@@ -43,10 +43,12 @@
 
 
 @media screen and (max-width: 64rem) {
+
     .containerFreteGratis {
-        padding: 28px 1rem 18px;       
+        padding: 12px 1rem 1rem;       
     }
     .titleMiniCartFreteGratis {
         margin-bottom: 4px;       
     }
+
 }

@@ -29,3 +29,7 @@
 .ButtonToastHidden {    
     bottom: -50px;
 }
+
+.ButtonToastSucess {
+    background-color: #00a95b; 
+}

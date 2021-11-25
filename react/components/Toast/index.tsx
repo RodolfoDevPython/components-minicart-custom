@@ -3,7 +3,8 @@ import React, { useEffect } from "react"
 interface ToastNotificationsProps {
     showToast: boolean,
     onHandleClosed: (_ : boolean) => void,
-    message: string
+    message: string,
+    warning: boolean
 }
 
 import style from "./style.css";
@@ -12,7 +13,8 @@ import iconWarning  from "../../../assets/icons/sinal-de-alerta.png";
 export function ToastNotifications({
     showToast,
     onHandleClosed,
-    message
+    message,
+    warning
 }: ToastNotificationsProps) {
 
 
@@ -29,6 +31,8 @@ export function ToastNotifications({
         <div 
             className={`${style.ButtonToast}
                 ${!showToast && style.ButtonToastHidden}
+
+                ${!warning && style.ButtonToastSucess}
             `}> 
             <img src={iconWarning} alt="icon-warning" />
             {message}

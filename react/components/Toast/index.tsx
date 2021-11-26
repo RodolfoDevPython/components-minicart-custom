@@ -9,6 +9,7 @@ interface ToastNotificationsProps {
 
 import style from "./style.css";
 import iconWarning  from "../../../assets/icons/sinal-de-alerta.png";
+import iconSucess  from "../../../assets/icons/check-sucess.png";
 
 export function ToastNotifications({
     showToast,
@@ -34,7 +35,15 @@ export function ToastNotifications({
 
                 ${!warning && style.ButtonToastSucess}
             `}> 
-            <img src={iconWarning} alt="icon-warning" />
+
+            {
+                !warning ? 
+                (<img width="16px" src={iconSucess} alt="icon-sucess" />)
+                :
+                (<img src={iconWarning} alt="icon-warning" />)
+            }
+            
+            
             {message}
         </div>
         
